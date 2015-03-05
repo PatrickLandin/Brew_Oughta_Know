@@ -47,8 +47,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     self.searchBar.resignFirstResponder()
 
     NetworkController.shareNetworkController.fetchBeersForSearchTerm(self.searchBar.text, completionHandler: { (beers, error) -> (Void) in
+      if error == nil {
       self.beers = beers
       self.tableView.reloadData()
+      } else {
+        println("No search results")
+        // Probably need to add a meesage for the user here
+      }
     })
   }
 }
