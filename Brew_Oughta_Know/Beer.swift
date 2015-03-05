@@ -30,10 +30,12 @@ class Beer {
       self.abv = jsonDictionary["abv"] as? String
     }
     
-    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]
-    if let glassRecommendation = glassDictionary["name"] as? String {
-      self.glassRecommendation = glassDictionary["name"] as? String
-    }
+//    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]
+//    if let glassRecommendation = glassDictionary["name"] as? String {
+//      self.glassRecommendation = glassDictionary["name"] as? String
+//    } else {
+//      println("no glass")
+//    }
     
     let styleDictionary = jsonDictionary["style"] as [String : AnyObject]
     if let style = styleDictionary["name"] as? String {
@@ -47,10 +49,9 @@ class Beer {
     if let beerCategory = categoryDictionary["name"] as? String {
       self.beerCategory = categoryDictionary["name"] as? String
     }
-    
   }
   
-  class func beersFromJSON(jsonData : NSData) -> [Beer]? {
+   class func beersFromJSON(jsonData : NSData) -> [Beer]? {
     if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       if let dataArray = jsonDictionary["data"] as? [[String : AnyObject]] {
         
@@ -66,4 +67,4 @@ class Beer {
         return nil
       }
     }
-  }
+}

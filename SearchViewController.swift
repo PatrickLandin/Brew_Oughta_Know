@@ -8,15 +8,18 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource {
-  
+class SearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
   
   @IBOutlet weak var tableView: UITableView!
-
+  @IBOutlet weak var searchBar: UISearchBar!
+  
+  var beers = [Beer]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
       self.tableView.dataSource = self
+      self.searchBar.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -31,12 +34,21 @@ class SearchViewController: UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 100
+    return self.beers.count
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("SEARCH_CELL", forIndexPath: indexPath) as UITableViewCell
-    
+    cell.textLabel?.text = self.beers[indexPath.row].name
     return cell
   }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    
+    self.searchBar.resignFirstResponder()
 
+    NetworkController.shareNetworkController.fetchBeersForSearchTerm(self.searchBar.text, completionHandler: { (beers, error) -> (Void) in
+      self.beers = beers
+      self.tableView.reloadData()
+    })
+  }
 }
