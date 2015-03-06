@@ -33,8 +33,10 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
     self.searchBar.resignFirstResponder()
     println(searchBar.text)
     
-    // Network controller fetch goes here
-    
+    NetworkController.shareNetworkController.fetchBreweriesForSearchTerm(self.searchBar.text, completionHandler: { (breweries, error) -> (Void) in
+      self.breweries = breweries
+      self.tableView.reloadData()
+    })
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,13 +44,12 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    return self.breweries.count
-    return 100
+    return self.breweries.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as UITableViewCell
-    
+    cell.textLabel?.text = self.breweries[indexPath.row].name
     return cell
   }
   
