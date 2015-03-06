@@ -13,9 +13,11 @@
 		ECC04AF41AA7752C009F61E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC04AF31AA7752C009F61E6 /* Images.xcassets */; };
 		ECC04AF71AA7752C009F61E6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC04AF51AA7752C009F61E6 /* LaunchScreen.xib */; };
 		ECC04B031AA7752C009F61E6 /* Brew_Oughta_KnowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B021AA7752C009F61E6 /* Brew_Oughta_KnowTests.swift */; };
-		ECC04B0D1AA7A113009F61E6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B0C1AA7A113009F61E6 /* SearchViewController.swift */; };
 		ECC04B161AA7A971009F61E6 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B151AA7A971009F61E6 /* NetworkController.swift */; };
 		ECC04B181AA8C632009F61E6 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B171AA8C632009F61E6 /* Beer.swift */; };
+		ECC04B1A1AAA1FBD009F61E6 /* SearchBreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */; };
+		ECC04B1C1AAA1FE0009F61E6 /* SearchBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */; };
+		ECC04B1E1AAA292A009F61E6 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B1D1AAA292A009F61E6 /* Brewery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +41,11 @@
 		ECC04AFC1AA7752C009F61E6 /* Brew_Oughta_KnowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Brew_Oughta_KnowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC04B011AA7752C009F61E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC04B021AA7752C009F61E6 /* Brew_Oughta_KnowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew_Oughta_KnowTests.swift; sourceTree = "<group>"; };
-		ECC04B0C1AA7A113009F61E6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../SearchViewController.swift; sourceTree = "<group>"; };
 		ECC04B151AA7A971009F61E6 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		ECC04B171AA8C632009F61E6 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryViewController.swift; sourceTree = "<group>"; };
+		ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBeerViewController.swift; sourceTree = "<group>"; };
+		ECC04B1D1AAA292A009F61E6 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC04B171AA8C632009F61E6 /* Beer.swift */,
+				ECC04B1D1AAA292A009F61E6 /* Brewery.swift */,
 				ECC04AE91AA7752C009F61E6 /* AppDelegate.swift */,
 				ECC04AEB1AA7752C009F61E6 /* Brew_Oughta_Know.xcdatamodeld */,
 			);
@@ -139,7 +144,8 @@
 		ECC04B101AA7A12F009F61E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ECC04B0C1AA7A113009F61E6 /* SearchViewController.swift */,
+				ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */,
+				ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */,
 				ECC04B151AA7A971009F61E6 /* NetworkController.swift */,
 			);
 			name = Controller;
@@ -246,9 +252,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC04B161AA7A971009F61E6 /* NetworkController.swift in Sources */,
-				ECC04B0D1AA7A113009F61E6 /* SearchViewController.swift in Sources */,
+				ECC04B1A1AAA1FBD009F61E6 /* SearchBreweryViewController.swift in Sources */,
 				ECC04B181AA8C632009F61E6 /* Beer.swift in Sources */,
+				ECC04B1E1AAA292A009F61E6 /* Brewery.swift in Sources */,
 				ECC04AED1AA7752C009F61E6 /* Brew_Oughta_Know.xcdatamodeld in Sources */,
+				ECC04B1C1AAA1FE0009F61E6 /* SearchBeerViewController.swift in Sources */,
 				ECC04AEA1AA7752C009F61E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

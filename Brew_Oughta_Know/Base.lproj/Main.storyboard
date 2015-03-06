@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRS-IT-zal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="352"/>
+            <point key="canvasLocation" x="694" y="708"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="Kzj-Wh-yjB">
@@ -65,12 +65,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGx-wA-Zjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="1086"/>
+            <point key="canvasLocation" x="962" y="1380"/>
         </scene>
         <!--Search-->
         <scene sceneID="nzG-tM-Z8U">
             <objects>
-                <viewController title="Search" id="ZKp-0Y-rsy" customClass="SearchViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="ZKp-0Y-rsy" customClass="SearchBeerViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Gu-Xs-6ZO"/>
                         <viewControllerLayoutGuide type="bottom" id="sUf-6y-Xo6"/>
@@ -92,7 +92,7 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SEARCH_CELL" id="rmt-ec-bJ7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BEER_CELL" id="rmt-ec-bJ7">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rmt-ec-bJ7" id="Gg9-jn-x2c">
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHD-t6-xGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-351"/>
+            <point key="canvasLocation" x="1372" y="33"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EKY-U7-0Fg">
@@ -134,20 +134,72 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="uEH-hC-mIu" kind="relationship" relationship="viewControllers" id="1sr-eg-0Cd"/>
-                        <segue destination="fRg-rv-NIZ" kind="relationship" relationship="viewControllers" id="05T-Jg-Yda"/>
-                        <segue destination="mpL-mf-4OC" kind="relationship" relationship="viewControllers" id="YN5-Mj-4J9"/>
+                        <segue destination="uEH-hC-mIu" kind="relationship" relationship="viewControllers" id="oPc-t2-FwH"/>
+                        <segue destination="IUE-0x-cct" kind="relationship" relationship="viewControllers" id="uBB-Gp-AZV"/>
+                        <segue destination="fRg-rv-NIZ" kind="relationship" relationship="viewControllers" id="X0T-qV-Y6Y"/>
+                        <segue destination="mpL-mf-4OC" kind="relationship" relationship="viewControllers" id="IVc-Oo-z5V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dcb-It-Fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-66" y="352"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search Breweries-->
+        <scene sceneID="LSO-KG-2zS">
+            <objects>
+                <viewController title="Search Breweries" id="4j9-3c-50r" customClass="SearchBreweryViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gMU-SZ-yEF"/>
+                        <viewControllerLayoutGuide type="bottom" id="y9l-n4-1uA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Mv-Kc-Nfu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uFW-pi-8wd">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z5c-Ap-9Ly">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BREWERY_CELL" id="62X-l0-FCV">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62X-l0-FCV" id="LuF-TJ-W96">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z5c-Ap-9Ly" firstAttribute="top" secondItem="uFW-pi-8wd" secondAttribute="bottom" id="CPA-cZ-zpI"/>
+                            <constraint firstItem="uFW-pi-8wd" firstAttribute="top" secondItem="gMU-SZ-yEF" secondAttribute="bottom" id="HEI-Rt-qmW"/>
+                            <constraint firstItem="y9l-n4-1uA" firstAttribute="top" secondItem="z5c-Ap-9Ly" secondAttribute="bottom" id="UU9-7A-0J0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z5c-Ap-9Ly" secondAttribute="trailing" constant="-16" id="alk-w6-bFS"/>
+                            <constraint firstItem="uFW-pi-8wd" firstAttribute="leading" secondItem="4Mv-Kc-Nfu" secondAttribute="leadingMargin" constant="-16" id="fLy-CJ-PEp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uFW-pi-8wd" secondAttribute="trailing" constant="-16" id="ucT-Xn-DV8"/>
+                            <constraint firstItem="z5c-Ap-9Ly" firstAttribute="leading" secondItem="4Mv-Kc-Nfu" secondAttribute="leadingMargin" constant="-16" id="vFU-dS-Yun"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AIL-jx-tB8"/>
+                    <connections>
+                        <outlet property="searchBar" destination="uFW-pi-8wd" id="sgg-R1-2H8"/>
+                        <outlet property="tableView" destination="z5c-Ap-9Ly" id="yuV-yC-vwN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZFl-IX-s7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="-645"/>
+        </scene>
+        <!--Search Beers-->
         <scene sceneID="zaQ-uk-23A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uEH-hC-mIu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="pe8-MR-bTY"/>
+                    <tabBarItem key="tabBarItem" title="Search Beers" id="pe8-MR-bTY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mIA-Xe-9iQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -160,13 +212,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXw-Gf-wma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="-351"/>
+            <point key="canvasLocation" x="694" y="33"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Recipes-->
         <scene sceneID="D4t-OM-Xh7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mpL-mf-4OC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="BKW-hq-Y1b"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" id="BKW-hq-Y1b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DCI-WT-sTu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -179,7 +231,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP3-h8-jIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="1086"/>
+            <point key="canvasLocation" x="300" y="1380"/>
+        </scene>
+        <!--Search Breweries-->
+        <scene sceneID="8x2-z6-Aw8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IUE-0x-cct" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search Breweries" id="iHC-t5-ACZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yo7-sw-qXV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4j9-3c-50r" kind="relationship" relationship="rootViewController" id="P7H-CK-cUx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7Y-P6-em4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-645"/>
         </scene>
     </scenes>
 </document>
