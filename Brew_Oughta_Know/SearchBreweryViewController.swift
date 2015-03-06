@@ -34,8 +34,14 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
     println(searchBar.text)
     
     NetworkController.shareNetworkController.fetchBreweriesForSearchTerm(self.searchBar.text, completionHandler: { (breweries, error) -> (Void) in
-      self.breweries = breweries
-      self.tableView.reloadData()
+      
+      if error == nil {
+        self.breweries = breweries
+        self.tableView.reloadData()
+      } else {
+        println("Brewery error thing happened")
+        // Error
+      }
     })
   }
   
