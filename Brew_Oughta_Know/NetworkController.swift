@@ -105,7 +105,7 @@ class NetworkController {
               })
             }
           default:
-            println("Ah crap. Didn't get the beers")
+            println("Ah crap. Didn't get the beers.")
           }
         }
       }
@@ -113,8 +113,35 @@ class NetworkController {
     dataTask.resume()
   }
   
-  
-  
+  func fetchBreweryForBeer(breweryID : String, completionHandler : ([Brewery], String?) ->(Void)) {
+    let url = NSURL(string: "http://api.brewerydb.com/v2/beer/\(breweryID)/breweries?key=bd8c3a5a3503d79ea553868ba7189517")
+    let request = NSMutableURLRequest(URL: url!)
+    request.HTTPMethod = "GET"
+    var urlSession = NSURLSession.sharedSession()
+    let dataTask = urlSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+      if error == nil {
+        if let httpResponse = response as? NSHTTPURLResponse {
+          println(httpResponse.statusCode)
+          switch httpResponse.statusCode {
+          case 200...299:
+            println("Gots the brewery for the beer")
+            
+            let results = Brewery.breweriesFromJSON(data)
+            if results != nil {
+              
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(results!, nil)
+              })
+            }
+            
+          default:
+            println("Ah crap. Didn't get the brewery.")
+          }
+        }
+      }
+    })
+    dataTask.resume()
+  }
   
 }
 
