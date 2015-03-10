@@ -171,7 +171,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="vlB-gX-iqg" kind="show" identifier="SHOW_BREWERY" id="wqf-GU-UrU"/>
+                                            <segue destination="vlB-gX-iqg" kind="show" identifier="SHOW_BEER" id="wqf-GU-UrU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

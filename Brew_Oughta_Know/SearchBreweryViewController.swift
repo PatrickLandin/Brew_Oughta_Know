@@ -56,7 +56,7 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "SHOW_BEERS" {
+    if segue.identifier == "SHOW_BEER" {
       let destinationVC = segue.destinationViewController as BreweryDetailViewController
       let selectedIndexPath = self.tableView.indexPathForSelectedRow()
       let brewery = self.breweries[selectedIndexPath!.row]
