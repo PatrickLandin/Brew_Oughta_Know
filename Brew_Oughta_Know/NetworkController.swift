@@ -85,7 +85,7 @@ class NetworkController {
   }
   
   func fetchBeersForBrewery(breweryID : String, completionHandler : ([Beer], String?) -> (Void)) {
-    let url = NSURL(string: "http://api.brewerydb.com/v2/?key=bd8c3a5a3503d79ea553868ba7189517/brewery/\(breweryID)/beers")
+    let url = NSURL(string: "http://api.brewerydb.com/v2/brewery/\(breweryID)/beers?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
     request.HTTPMethod = "GET"
     var urlSession = NSURLSession.sharedSession()
