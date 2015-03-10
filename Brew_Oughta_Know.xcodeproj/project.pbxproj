@@ -18,6 +18,7 @@
 		ECC04B1A1AAA1FBD009F61E6 /* SearchBreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */; };
 		ECC04B1C1AAA1FE0009F61E6 /* SearchBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */; };
 		ECC04B1E1AAA292A009F61E6 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B1D1AAA292A009F61E6 /* Brewery.swift */; };
+		ECC04B201AAE500B009F61E6 /* BreweryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04B1F1AAE500B009F61E6 /* BreweryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryViewController.swift; sourceTree = "<group>"; };
 		ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBeerViewController.swift; sourceTree = "<group>"; };
 		ECC04B1D1AAA292A009F61E6 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
+		ECC04B1F1AAE500B009F61E6 /* BreweryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */,
 				ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */,
+				ECC04B1F1AAE500B009F61E6 /* BreweryDetailViewController.swift */,
 				ECC04B151AA7A971009F61E6 /* NetworkController.swift */,
 			);
 			name = Controller;
@@ -253,6 +256,7 @@
 			files = (
 				ECC04B161AA7A971009F61E6 /* NetworkController.swift in Sources */,
 				ECC04B1A1AAA1FBD009F61E6 /* SearchBreweryViewController.swift in Sources */,
+				ECC04B201AAE500B009F61E6 /* BreweryDetailViewController.swift in Sources */,
 				ECC04B181AA8C632009F61E6 /* Beer.swift in Sources */,
 				ECC04B1E1AAA292A009F61E6 /* Brewery.swift in Sources */,
 				ECC04AED1AA7752C009F61E6 /* Brew_Oughta_Know.xcdatamodeld in Sources */,

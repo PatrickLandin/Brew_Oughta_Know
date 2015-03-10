@@ -59,4 +59,13 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
     return cell
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "SHOW_BEERS" {
+      let destinationVC = segue.destinationViewController as BreweryDetailViewController
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      let brewery = self.breweries[selectedIndexPath!.row]
+      destinationVC.selectedBrewery = brewery
+    }
+  }
+  
 }
