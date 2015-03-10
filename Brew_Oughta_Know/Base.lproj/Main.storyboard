@@ -246,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="2056" y="-645"/>
         </scene>
-        <!--View Controller-->
+        <!--Beer Detail View Controller-->
         <scene sceneID="bgf-Lb-m8B">
             <objects>
-                <viewController id="cGA-sS-Wqg" sceneMemberID="viewController">
+                <viewController id="cGA-sS-Wqg" customClass="BeerDetailViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J8a-Sg-c7m"/>
                         <viewControllerLayoutGuide type="bottom" id="S84-mi-qtb"/>
@@ -257,8 +257,19 @@
                     <view key="view" contentMode="scaleToFill" id="5zf-MY-eWC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW2-rt-fNV">
+                                <rect key="frame" x="54" y="110" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="breweryLabel" destination="fW2-rt-fNV" id="Vcu-cc-acO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVl-Qa-w6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
