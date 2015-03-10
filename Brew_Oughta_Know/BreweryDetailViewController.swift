@@ -33,13 +33,13 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
     }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 100
+    return self.beers.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("BEERS_CELL", forIndexPath: indexPath) as UITableViewCell
     
-//    cell.textLabel?.text = selectedBrewery?
+    cell.textLabel?.text = self.beers[indexPath.row].name
     
     return cell
   }

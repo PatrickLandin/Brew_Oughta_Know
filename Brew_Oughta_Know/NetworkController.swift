@@ -97,18 +97,12 @@ class NetworkController {
           case 200...299:
             println("Gots all of the beers")
             
-            if let jsonArray = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject] {
+            let results = Beer.beersFromJSON(data)
+            if results != nil {
               
-              var manyBeers = [Beer]()
-              for item in jsonArray {
-                if let jsonDictionary = item as? [String : AnyObject] {
-                  let beers = Beer(jsonDictionary: jsonDictionary)
-                  manyBeers.append(beers)
-                }
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                  completionHandler(manyBeers, nil)
-                })
-              }
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(results!, nil)
+              })
             }
           default:
             println("Ah crap. Didn't get the beers")
@@ -118,6 +112,8 @@ class NetworkController {
     })
     dataTask.resume()
   }
+  
+  
   
   
 }
