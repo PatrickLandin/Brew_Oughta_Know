@@ -167,13 +167,37 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BREWERY_CELL" id="62X-l0-FCV">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BREWERY_CELL" rowHeight="55" id="62X-l0-FCV" customClass="SearchBreweryTableViewCell" customModule="Brew_Oughta_Know" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62X-l0-FCV" id="LuF-TJ-W96">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gWh-Ou-IAa">
+                                                    <rect key="frame" x="8" y="7" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="dbZ-z9-N9Z"/>
+                                                        <constraint firstAttribute="height" constant="40" id="oiY-KA-ZWR"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewery Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-G8-Dfl">
+                                                    <rect key="frame" x="62" y="16" width="119" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ReP-G8-Dfl" firstAttribute="leading" secondItem="gWh-Ou-IAa" secondAttribute="trailing" constant="14" id="2gH-Rk-dDI"/>
+                                                <constraint firstItem="gWh-Ou-IAa" firstAttribute="top" secondItem="LuF-TJ-W96" secondAttribute="topMargin" constant="-1" id="dUH-wz-bLP"/>
+                                                <constraint firstAttribute="centerY" secondItem="ReP-G8-Dfl" secondAttribute="centerY" id="snl-Kl-HCy"/>
+                                                <constraint firstItem="gWh-Ou-IAa" firstAttribute="leading" secondItem="LuF-TJ-W96" secondAttribute="leadingMargin" id="uFW-CP-MIj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gWh-Ou-IAa" secondAttribute="bottom" constant="-1" id="us8-et-tDQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="breweryLabel" destination="ReP-G8-Dfl" id="Ez0-ZI-cQC"/>
+                                            <outlet property="smallBreweryIcon" destination="gWh-Ou-IAa" id="4Xq-1w-utf"/>
                                             <segue destination="vlB-gX-iqg" kind="show" identifier="SHOW_BEER" id="wqf-GU-UrU"/>
                                         </connections>
                                     </tableViewCell>
@@ -199,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFl-IX-s7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-645"/>
+            <point key="canvasLocation" x="1372" y="-647"/>
         </scene>
         <!--Brewery Detail-->
         <scene sceneID="M52-Qf-AVt">

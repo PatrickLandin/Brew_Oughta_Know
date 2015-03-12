@@ -18,6 +18,8 @@ class NetworkController {
     return Static.instance
   }
   
+  let imageQueue = NSOperationQueue()
+  
   func fetchBeersForSearchTerm(searchTerm : String, completionHandler : ([Beer], String?) -> (Void)) {
     let url = NSURL(string: "http://api.brewerydb.com/v2/search?key=bd8c3a5a3503d79ea553868ba7189517&q=\(searchTerm)&type=beer")
     let request = NSMutableURLRequest(URL: url!)
@@ -141,6 +143,19 @@ class NetworkController {
       }
     })
     dataTask.resume()
+  }
+  
+  func fetchBreweryIconForURL(url : String, completionHandler : (UIImage) -> (Void)) {
+    let url = NSURL(string: url)
+    
+    self.imageQueue.addOperationWithBlock { () -> Void in
+      let imageData = NSData(contentsOfURL: url!)
+      let image = UIImage(data: imageData!)
+      
+      NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+        completionHandler(image!)
+      })
+    }
   }
   
 }

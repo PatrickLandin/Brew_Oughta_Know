@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
+class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
@@ -19,6 +19,7 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
         super.viewDidLoad()
       
       self.tableView.dataSource = self
+      self.tableView.delegate = self
       self.searchBar.delegate = self
 
         // Do any additional setup after loading the view.
@@ -50,8 +51,8 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as UITableViewCell
-    cell.textLabel?.text = self.breweries[indexPath.row].name
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as SearchBreweryTableViewCell
+    cell.breweryLabel.text = self.breweries[indexPath.row].name
     return cell
   }
   
