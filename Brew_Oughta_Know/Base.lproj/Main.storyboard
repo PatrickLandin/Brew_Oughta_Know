@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TEi-dp-z2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TEi-dp-z2g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqg-Xu-HxH">
                                 <rect key="frame" x="263" y="289" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -81,7 +81,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlP-Ud-aDG">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k2G-Yt-C9R">
@@ -99,7 +99,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cGA-sS-Wqg" kind="show" identifier="SHOW_BEERSTUFF" id="G8E-RG-rqM"/>
+                                            <segue destination="cGA-sS-Wqg" kind="show" identifier="SHOW_BEER_DETAIL" id="G8E-RG-rqM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -204,7 +204,7 @@
         <!--Brewery Detail-->
         <scene sceneID="M52-Qf-AVt">
             <objects>
-                <viewController title="Brewery Detail" id="vlB-gX-iqg" customClass="BreweryDetailViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Brewery Detail" automaticallyAdjustsScrollViewInsets="NO" id="vlB-gX-iqg" customClass="BreweryDetailViewController" customModule="Brew_Oughta_Know" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ccd-5K-8tZ"/>
                         <viewControllerLayoutGuide type="bottom" id="OW2-cj-2uk"/>
@@ -213,8 +213,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KPg-M3-SRj">
-                                <rect key="frame" x="0.0" y="205" width="600" height="346"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wFE-90-QAm">
+                                <rect key="frame" x="16" y="72" width="75" height="75"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="qJM-xG-IoT"/>
+                                    <constraint firstAttribute="width" constant="75" id="ubf-Ne-Wo2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewery Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-45-gvi">
+                                <rect key="frame" x="99" y="72" width="477" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN3-D1-nKS">
+                                <rect key="frame" x="99" y="110" width="477" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Est: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05r-5I-vgP">
+                                <rect key="frame" x="99" y="97" width="21" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YEAR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4W-3M-Yvj">
+                                <rect key="frame" x="122" y="97" width="27" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kn-kG-rvU">
+                                <rect key="frame" x="16" y="155" width="560" height="36"/>
+                                <string key="text">wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KPg-M3-SRj">
+                                <rect key="frame" x="0.0" y="199" width="600" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BEERS_CELL" id="Ztd-N3-tTA">
@@ -226,20 +265,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFE-90-QAm">
-                                <rect key="frame" x="16" y="72" width="125" height="125"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brewery Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-45-gvi">
-                                <rect key="frame" x="149" y="80" width="146" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CN3-D1-nKS" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="8" id="KXm-fj-owH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ETQ-45-gvi" secondAttribute="trailing" constant="8" id="L36-nj-fq9"/>
+                            <constraint firstItem="KPg-M3-SRj" firstAttribute="leading" secondItem="Prx-Qs-54u" secondAttribute="leadingMargin" constant="-16" id="PtC-Ef-YNN"/>
+                            <constraint firstItem="ETQ-45-gvi" firstAttribute="top" secondItem="Ccd-5K-8tZ" secondAttribute="bottom" constant="8" id="TiT-nC-4FD"/>
+                            <constraint firstItem="05r-5I-vgP" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="8" id="Tyj-0Y-n2a"/>
+                            <constraint firstItem="wFE-90-QAm" firstAttribute="leading" secondItem="Prx-Qs-54u" secondAttribute="leadingMargin" id="VMv-YC-x5d"/>
+                            <constraint firstItem="i4W-3M-Yvj" firstAttribute="top" secondItem="ETQ-45-gvi" secondAttribute="bottom" constant="2" id="Zoj-lx-Ewe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CN3-D1-nKS" secondAttribute="trailing" constant="8" id="d1c-wi-Gly"/>
+                            <constraint firstItem="wFE-90-QAm" firstAttribute="top" secondItem="Ccd-5K-8tZ" secondAttribute="bottom" constant="8" id="dlb-Ug-xWH"/>
+                            <constraint firstItem="OW2-cj-2uk" firstAttribute="top" secondItem="KPg-M3-SRj" secondAttribute="bottom" id="fBz-39-PPU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KPg-M3-SRj" secondAttribute="trailing" constant="-16" id="hXP-TO-3NR"/>
+                            <constraint firstItem="05r-5I-vgP" firstAttribute="top" secondItem="i4W-3M-Yvj" secondAttribute="top" id="hqF-mw-6dn"/>
+                            <constraint firstItem="0kn-kG-rvU" firstAttribute="top" secondItem="wFE-90-QAm" secondAttribute="bottom" constant="8" id="hz8-RM-RH4"/>
+                            <constraint firstItem="CN3-D1-nKS" firstAttribute="top" secondItem="05r-5I-vgP" secondAttribute="bottom" constant="1" id="jC9-5N-H80"/>
+                            <constraint firstItem="0kn-kG-rvU" firstAttribute="leading" secondItem="Prx-Qs-54u" secondAttribute="leadingMargin" id="qdM-1h-weH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0kn-kG-rvU" secondAttribute="trailing" constant="8" id="rMi-oK-wjY"/>
+                            <constraint firstItem="KPg-M3-SRj" firstAttribute="top" secondItem="0kn-kG-rvU" secondAttribute="bottom" constant="8" id="rhe-gl-eha"/>
+                            <constraint firstItem="ETQ-45-gvi" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="8" id="tSv-BN-quN"/>
+                            <constraint firstItem="i4W-3M-Yvj" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="31" id="vrc-Um-YFH"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="breweryIcon" destination="wFE-90-QAm" id="6bq-Pp-sbw"/>
+                        <outlet property="breweryLabel" destination="ETQ-45-gvi" id="0Fx-S3-6en"/>
+                        <outlet property="descriptionLabel" destination="0kn-kG-rvU" id="GEh-4F-Rvm"/>
                         <outlet property="tableView" destination="KPg-M3-SRj" id="hFY-34-vdw"/>
+                        <outlet property="websiteLabel" destination="CN3-D1-nKS" id="bVK-nS-nqX"/>
+                        <outlet property="yearEstLabel" destination="i4W-3M-Yvj" id="Cy5-IS-aOt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Chk-kh-zan" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +317,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW2-rt-fNV">
                                 <rect key="frame" x="54" y="110" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

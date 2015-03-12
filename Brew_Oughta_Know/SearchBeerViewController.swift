@@ -59,4 +59,13 @@ class SearchBeerViewController: UIViewController, UITableViewDataSource, UISearc
     return cell
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "SHOW_BEER_DETAIL" {
+      let destinationVC = segue.destinationViewController as BeerDetailViewController
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      let beer = self.beers[selectedIndexPath!.row]
+      destinationVC.selectedBeer = beer
+    }
+  }
+  
 }

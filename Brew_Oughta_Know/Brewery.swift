@@ -12,16 +12,30 @@ class Brewery {
   
   var id : String
   var name : String
+  var website : String
+  var established : String
+  var description : String
+  var iconImageURL : String
+  var breweryIcon : UIImage?
   
   init(jsonDictionary : [String : AnyObject]) {
     self.id = jsonDictionary["id"] as String
     self.name = jsonDictionary["name"] as String
+    self.website = jsonDictionary["website"] as String
+    self.established = jsonDictionary["established"] as String
+    self.description = jsonDictionary["description"] as String
+    
+    let imageDictionary = jsonDictionary["images"] as [String : AnyObject]
+//    if let iconImageURL = imageDictionary["icon"] as? String {
+      self.iconImageURL = imageDictionary["icon"] as String
+//    }
   }
   
   class func breweriesFromJSON(jsonData : NSData) -> [Brewery]? {
     if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       if let dataArray = jsonDictionary["data"] as? [[String : AnyObject]] {
         
+        println("jsonDictionary: \(jsonDictionary)")
         var breweries = [Brewery]()
         for data in dataArray {
           var brewery = Brewery(jsonDictionary: data)

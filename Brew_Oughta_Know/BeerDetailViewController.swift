@@ -11,11 +11,18 @@ import UIKit
 class BeerDetailViewController: UIViewController {
 
   @IBOutlet weak var breweryLabel: UILabel!
+  var brewery : Brewery?
+  var selectedBeer : Beer?
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      self.breweryLabel.text = 
+      self.breweryLabel.text = self.brewery?.name
+      
+      NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.id, completionHandler: { (brewery, error) -> (Void) in
+        
+
+      })
 
         // Do any additional setup after loading the view.
     }

@@ -66,7 +66,7 @@ class NetworkController {
             
             let results = Brewery.breweriesFromJSON(data)
             if results != nil {
-              
+              println("results: \(results)")
               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 completionHandler(results!, nil)
               })

@@ -11,6 +11,11 @@ import UIKit
 class BreweryDetailViewController: UIViewController, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var breweryLabel: UILabel!
+  @IBOutlet weak var websiteLabel: UILabel!
+  @IBOutlet weak var yearEstLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var breweryIcon: UIImageView!
   var beers = [Beer]()
   var selectedBrewery : Brewery?
   
@@ -18,6 +23,11 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
       
       self.tableView.dataSource = self
+      self.breweryIcon.layer.cornerRadius = 10.0
+      self.breweryLabel.text = self.selectedBrewery?.name
+      self.websiteLabel.text = self.selectedBrewery?.website
+      self.yearEstLabel.text = self.selectedBrewery?.established
+      self.descriptionLabel.text = self.selectedBrewery?.description
       
      NetworkController.shareNetworkController.fetchBeersForBrewery(self.selectedBrewery!.id, completionHandler: { (beers, error) -> (Void) in
       
