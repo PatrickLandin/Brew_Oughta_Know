@@ -21,6 +21,7 @@ class BeerDetailViewController: UIViewController {
       
       NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.id, completionHandler: { (brewery, error) -> (Void) in
         
+        // Do something in here for beer detail
 
       })
 

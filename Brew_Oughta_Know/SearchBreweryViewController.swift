@@ -53,6 +53,18 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as SearchBreweryTableViewCell
     cell.breweryLabel.text = self.breweries[indexPath.row].name
+    
+    var brewery = self.breweries[indexPath.row]
+    if brewery.breweryIcon == nil {
+      NetworkController.shareNetworkController.fetchBreweryIconForURL(brewery.iconImageURL, completionHandler: { (image) -> (Void) in
+        cell.smallBreweryIcon.image = image
+        brewery.breweryIcon = image
+        self.breweries[indexPath.row] = brewery
+      })
+    } else {
+      cell.smallBreweryIcon.image = brewery.breweryIcon
+    }
+    
     return cell
   }
   
