@@ -189,10 +189,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ReP-G8-Dfl" firstAttribute="leading" secondItem="gWh-Ou-IAa" secondAttribute="trailing" constant="14" id="2gH-Rk-dDI"/>
-                                                <constraint firstItem="gWh-Ou-IAa" firstAttribute="top" secondItem="LuF-TJ-W96" secondAttribute="topMargin" constant="-1" id="dUH-wz-bLP"/>
+                                                <constraint firstItem="gWh-Ou-IAa" firstAttribute="leading" secondItem="LuF-TJ-W96" secondAttribute="leadingMargin" id="K4y-VG-5dL"/>
                                                 <constraint firstAttribute="centerY" secondItem="ReP-G8-Dfl" secondAttribute="centerY" id="snl-Kl-HCy"/>
-                                                <constraint firstItem="gWh-Ou-IAa" firstAttribute="leading" secondItem="LuF-TJ-W96" secondAttribute="leadingMargin" id="uFW-CP-MIj"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="gWh-Ou-IAa" secondAttribute="bottom" constant="-1" id="us8-et-tDQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="gWh-Ou-IAa" secondAttribute="centerY" id="ycm-XV-hlK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
