@@ -24,6 +24,7 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
       
       self.tableView.dataSource = self
       self.breweryIcon.layer.cornerRadius = 10.0
+      self.breweryIcon.contentMode = UIViewContentMode.ScaleAspectFill
       self.breweryLabel.text = self.selectedBrewery?.name
       self.websiteLabel.text = self.selectedBrewery?.website
       self.yearEstLabel.text = self.selectedBrewery?.established
