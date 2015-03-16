@@ -17,6 +17,10 @@ class Brewery {
   var description : String
   var iconImageURL : String
   var breweryIcon : UIImage?
+  var mediumImageURL : String
+  var mediumImage : UIImage?
+  var largeImageURL : String
+  var largeImage : UIImage?
   
   init(jsonDictionary : [String : AnyObject]) {
     self.id = jsonDictionary["id"] as String
@@ -28,6 +32,8 @@ class Brewery {
     let imageDictionary = jsonDictionary["images"] as [String : AnyObject]
 //    if let iconImageURL = imageDictionary["icon"] as? String {
       self.iconImageURL = imageDictionary["icon"] as String
+      self.mediumImageURL = imageDictionary["medium"] as String
+      self.largeImageURL = imageDictionary["large"] as String
 //    }
   }
   

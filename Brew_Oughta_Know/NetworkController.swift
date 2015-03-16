@@ -158,6 +158,19 @@ class NetworkController {
     }
   }
   
+  func fetchMediumImageForBrewery(url : String, completionHandler : (UIImage) -> (Void)) {
+    let url = NSURL(string: url)
+    
+    self.imageQueue.addOperationWithBlock { () -> Void in
+      let imageData = NSData(contentsOfURL: url!)
+      let image = UIImage(data: imageData!)
+      
+      NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+        completionHandler(image!)
+      })
+    }
+  }
+  
 }
 
 

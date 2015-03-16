@@ -24,11 +24,19 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
       
       self.tableView.dataSource = self
       self.breweryIcon.layer.cornerRadius = 10.0
-      self.breweryIcon.image = self.selectedBrewery?.breweryIcon
       self.breweryLabel.text = self.selectedBrewery?.name
       self.websiteLabel.text = self.selectedBrewery?.website
       self.yearEstLabel.text = self.selectedBrewery?.established
       self.descriptionLabel.text = self.selectedBrewery?.description
+      
+      if selectedBrewery?.mediumImage == nil {
+        
+        NetworkController.shareNetworkController.fetchMediumImageForBrewery(self.selectedBrewery!.mediumImageURL, completionHandler: { (image) -> (Void) in
+          self.breweryIcon.image = image
+        })
+      } else {
+        self.breweryIcon.image = self.selectedBrewery?.mediumImage
+      }
       
      NetworkController.shareNetworkController.fetchBeersForBrewery(self.selectedBrewery!.id, completionHandler: { (beers, error) -> (Void) in
       
