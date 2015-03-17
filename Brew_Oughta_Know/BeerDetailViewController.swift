@@ -11,19 +11,23 @@ import UIKit
 class BeerDetailViewController: UIViewController {
 
   @IBOutlet weak var breweryLabel: UILabel!
-  var brewery : Brewery?
+  @IBOutlet weak var beerNameLabel: UILabel!
+  var brewery : [Brewery]?
   var selectedBeer : Beer?
+  
+  override func viewWillAppear(animated: Bool) {
+    
+    NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.id, completionHandler: { (brewery, error) -> (Void) in
+      
+      self.brewery = brewery
+      
+    })
+  }
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      self.breweryLabel.text = self.brewery?.name
-      
-      NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.id, completionHandler: { (brewery, error) -> (Void) in
-        
-        // Do something in here for beer detail
-
-      })
+      self.beerNameLabel.text = self.selectedBeer?.name
 
         // Do any additional setup after loading the view.
     }
