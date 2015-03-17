@@ -269,14 +269,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kn-kG-rvU">
-                                <rect key="frame" x="16" y="155" width="560" height="36"/>
+                                <rect key="frame" x="16" y="167" width="560" height="36"/>
                                 <string key="text">wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir wrfbwirbekbv;aejbvka;ejbvaev fvbekjbkelsf q;rbgeqilrb;e q;rjgbqei;rbugqe qirjbgeir </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KPg-M3-SRj">
-                                <rect key="frame" x="0.0" y="199" width="600" height="352"/>
+                                <rect key="frame" x="0.0" y="223" width="600" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BEERS_CELL" id="Ztd-N3-tTA">
@@ -285,6 +285,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ztd-N3-tTA" id="7bT-y1-fwx">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cGA-sS-Wqg" kind="show" identifier="SHOW_BEER_DETAIL" id="Kea-j1-rM5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -303,11 +306,11 @@
                             <constraint firstItem="OW2-cj-2uk" firstAttribute="top" secondItem="KPg-M3-SRj" secondAttribute="bottom" id="fBz-39-PPU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KPg-M3-SRj" secondAttribute="trailing" constant="-16" id="hXP-TO-3NR"/>
                             <constraint firstItem="05r-5I-vgP" firstAttribute="top" secondItem="i4W-3M-Yvj" secondAttribute="top" id="hqF-mw-6dn"/>
-                            <constraint firstItem="0kn-kG-rvU" firstAttribute="top" secondItem="wFE-90-QAm" secondAttribute="bottom" constant="8" id="hz8-RM-RH4"/>
+                            <constraint firstItem="0kn-kG-rvU" firstAttribute="top" secondItem="wFE-90-QAm" secondAttribute="bottom" constant="20" id="hz8-RM-RH4"/>
                             <constraint firstItem="CN3-D1-nKS" firstAttribute="top" secondItem="05r-5I-vgP" secondAttribute="bottom" constant="1" id="jC9-5N-H80"/>
                             <constraint firstItem="0kn-kG-rvU" firstAttribute="leading" secondItem="Prx-Qs-54u" secondAttribute="leadingMargin" id="qdM-1h-weH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0kn-kG-rvU" secondAttribute="trailing" constant="8" id="rMi-oK-wjY"/>
-                            <constraint firstItem="KPg-M3-SRj" firstAttribute="top" secondItem="0kn-kG-rvU" secondAttribute="bottom" constant="8" id="rhe-gl-eha"/>
+                            <constraint firstItem="KPg-M3-SRj" firstAttribute="top" secondItem="0kn-kG-rvU" secondAttribute="bottom" constant="20" id="rhe-gl-eha"/>
                             <constraint firstItem="ETQ-45-gvi" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="8" id="tSv-BN-quN"/>
                             <constraint firstItem="i4W-3M-Yvj" firstAttribute="leading" secondItem="wFE-90-QAm" secondAttribute="trailing" constant="31" id="vrc-Um-YFH"/>
                         </constraints>
@@ -412,4 +415,7 @@
             <point key="canvasLocation" x="694" y="-645"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kea-j1-rM5"/>
+    </inferredMetricsTieBreakers>
 </document>

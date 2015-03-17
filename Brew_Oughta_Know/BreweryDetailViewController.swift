@@ -24,6 +24,7 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
       
       self.tableView.dataSource = self
       self.breweryIcon.layer.cornerRadius = 10.0
+      self.breweryIcon.layer.masksToBounds = true
       self.breweryIcon.contentMode = UIViewContentMode.ScaleAspectFill
       self.breweryLabel.text = self.selectedBrewery?.name
       self.websiteLabel.text = self.selectedBrewery?.website
@@ -62,6 +63,15 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
     cell.textLabel?.text = self.beers[indexPath.row].name
     
     return cell
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "SHOW_BEER_DETAIL" {
+      let destinationVC = segue.destinationViewController as BeerDetailViewController
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      let beer = self.beers[selectedIndexPath!.row]
+      destinationVC.selectedBeer = beer
+    }
   }
 
 }
