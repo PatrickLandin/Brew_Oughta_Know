@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC377B221ABB76530007DB34 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC377B211ABB76530007DB34 /* Style.swift */; };
+		EC377B241ABB77E80007DB34 /* SearchStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC377B231ABB77E80007DB34 /* SearchStyleViewController.swift */; };
+		EC377B261ABB78140007DB34 /* StyleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC377B251ABB78140007DB34 /* StyleDetailViewController.swift */; };
 		ECAC10761AB2099E00D198C0 /* SearchBreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAC10751AB2099E00D198C0 /* SearchBreweryTableViewCell.swift */; };
 		ECB9FEE21AAF885B00C65C15 /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9FEE11AAF885B00C65C15 /* BeerDetailViewController.swift */; };
 		ECC04AEA1AA7752C009F61E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC04AE91AA7752C009F61E6 /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC377B211ABB76530007DB34 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		EC377B231ABB77E80007DB34 /* SearchStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStyleViewController.swift; sourceTree = "<group>"; };
+		EC377B251ABB78140007DB34 /* StyleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleDetailViewController.swift; sourceTree = "<group>"; };
 		ECAC10751AB2099E00D198C0 /* SearchBreweryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryTableViewCell.swift; sourceTree = "<group>"; };
 		ECB9FEE11AAF885B00C65C15 /* BeerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 		ECC04AE41AA7752C009F61E6 /* Brew_Oughta_Know.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brew_Oughta_Know.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +137,7 @@
 			children = (
 				ECC04B171AA8C632009F61E6 /* Beer.swift */,
 				ECC04B1D1AAA292A009F61E6 /* Brewery.swift */,
+				EC377B211ABB76530007DB34 /* Style.swift */,
 				ECC04AE91AA7752C009F61E6 /* AppDelegate.swift */,
 				ECC04AEB1AA7752C009F61E6 /* Brew_Oughta_Know.xcdatamodeld */,
 			);
@@ -151,10 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				ECC04B1B1AAA1FE0009F61E6 /* SearchBeerViewController.swift */,
-				ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */,
-				ECAC10751AB2099E00D198C0 /* SearchBreweryTableViewCell.swift */,
 				ECB9FEE11AAF885B00C65C15 /* BeerDetailViewController.swift */,
+				ECC04B191AAA1FBD009F61E6 /* SearchBreweryViewController.swift */,
 				ECC04B1F1AAE500B009F61E6 /* BreweryDetailViewController.swift */,
+				ECAC10751AB2099E00D198C0 /* SearchBreweryTableViewCell.swift */,
+				EC377B231ABB77E80007DB34 /* SearchStyleViewController.swift */,
+				EC377B251ABB78140007DB34 /* StyleDetailViewController.swift */,
 				ECC04B151AA7A971009F61E6 /* NetworkController.swift */,
 			);
 			name = Controller;
@@ -261,15 +270,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC04B161AA7A971009F61E6 /* NetworkController.swift in Sources */,
+				EC377B261ABB78140007DB34 /* StyleDetailViewController.swift in Sources */,
 				ECC04B1A1AAA1FBD009F61E6 /* SearchBreweryViewController.swift in Sources */,
 				ECC04B201AAE500B009F61E6 /* BreweryDetailViewController.swift in Sources */,
 				ECC04B181AA8C632009F61E6 /* Beer.swift in Sources */,
+				EC377B241ABB77E80007DB34 /* SearchStyleViewController.swift in Sources */,
 				ECC04B1E1AAA292A009F61E6 /* Brewery.swift in Sources */,
 				ECC04AED1AA7752C009F61E6 /* Brew_Oughta_Know.xcdatamodeld in Sources */,
 				ECC04B1C1AAA1FE0009F61E6 /* SearchBeerViewController.swift in Sources */,
 				ECB9FEE21AAF885B00C65C15 /* BeerDetailViewController.swift in Sources */,
 				ECAC10761AB2099E00D198C0 /* SearchBreweryTableViewCell.swift in Sources */,
 				ECC04AEA1AA7752C009F61E6 /* AppDelegate.swift in Sources */,
+				EC377B221ABB76530007DB34 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

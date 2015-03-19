@@ -48,8 +48,9 @@ class Brewery {
           breweries.append(brewery)
         }
         return breweries
-      }
+      } else {
       return nil
+      }
     } else {
       return nil
     }
