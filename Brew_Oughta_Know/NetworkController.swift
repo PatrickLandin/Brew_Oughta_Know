@@ -86,6 +86,38 @@ class NetworkController {
     dataTask.resume()
   }
   
+  func fetchStylesForSearchTerm(searchTerm : String, completionHandler : ([Style], String?) -> (Void)) {
+    let url = NSURL(string: "http://api.brewerydb.com/v2/search/style?key=bd8c3a5a3503d79ea553868ba7189517&q=\(searchTerm)")
+    let request = NSMutableURLRequest(URL: url!)
+    request.HTTPMethod = "GET"
+    var urlSession = NSURLSession.sharedSession()
+    let dataTask = urlSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+      if error == nil {
+        if let httpResponse = response as? NSHTTPURLResponse {
+          switch httpResponse.statusCode {
+          case 200...299:
+            println("Great Style Success")
+            
+            let results = Style.stylesFromJSON(data)
+            if results != nil {
+              println("results = \(results)")
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(results!, nil)
+              })
+            } else {
+              println("Crap style error")
+            }
+          default:
+            println("Ah crap")
+          }
+        } else {
+          println("Crap style data : \(data)")
+        }
+      }
+    })
+    dataTask.resume()
+  }
+  
   func fetchBeersForBrewery(breweryID : String, completionHandler : ([Beer], String?) -> (Void)) {
     let url = NSURL(string: "http://api.brewerydb.com/v2/brewery/\(breweryID)/beers?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
