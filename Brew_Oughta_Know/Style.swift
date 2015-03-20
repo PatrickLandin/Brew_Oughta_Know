@@ -10,10 +10,10 @@ import UIKit
 
 class Style {
   
-  var description : String
+  var styleName : String
   
   init(jsonDictionary : [String : AnyObject]) {
-    self.description = jsonDictionary["description"] as String
+    self.styleName = jsonDictionary["name"] as String
   }
   
   class func stylesFromJSON(jsonData : NSData) -> [Style]? {

@@ -8,10 +8,18 @@
 
 import UIKit
 
-class SearchStyleViewController: UIViewController {
-
+class SearchStyleViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+  
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var searchBar: UISearchBar!
+  
+  var styles = [Style]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      self.tableView.dataSource = self
+      self.searchBar.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -20,16 +28,32 @@ class SearchStyleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    self.searchBar.resignFirstResponder()
+    
+    NetworkController.shareNetworkController.fetchStylesForSearchTerm(self.searchBar.text, completionHandler: { (styles, error) -> (Void) in
+      if error == nil {
+        self.styles = styles
+        self.tableView.reloadData()
+      } else {
+        println("Network error for style search")
+        // user should get a notification here
+      }
+    })
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.styles.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("STYLE_CELL", forIndexPath: indexPath) as UITableViewCell
+    
+    cell.textLabel?.text = self.styles[indexPath.row].styleName
+    
+    return cell
+  }
 
 }

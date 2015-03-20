@@ -50,6 +50,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I4x-jq-es4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="8v3-gg-ex1" id="nMZ-FL-18c"/>
+                        <outlet property="tableView" destination="Tdb-vc-2Eh" id="QCr-SM-2zd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knu-3U-rYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
