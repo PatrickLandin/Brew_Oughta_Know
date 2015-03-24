@@ -13,7 +13,7 @@ class Beer {
   var name : String
   var id : String
   var description : String?
-  var abv : String?
+  var abv : String
   var glassRecommendation : String?
   var style : String?
   var styleDescription : String?
@@ -27,7 +27,7 @@ class Beer {
       self.description = jsonDictionary["description"] as? String
     }
     if let abv = jsonDictionary["abv"] as? String {
-      self.abv = jsonDictionary["abv"] as? String
+      self.abv = abv
     }
     
 //    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]

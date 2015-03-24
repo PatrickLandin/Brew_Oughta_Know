@@ -55,5 +55,14 @@ class SearchStyleViewController: UIViewController, UITableViewDataSource, UISear
     
     return cell
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "SHOW_STYLE_DETAIL" {
+      let destinationVC = segue.destinationViewController as StyleDetailViewController
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      let style = self.styles[selectedIndexPath!.row]
+      destinationVC.selectedStyle = style
+    }
+  }
 
 }

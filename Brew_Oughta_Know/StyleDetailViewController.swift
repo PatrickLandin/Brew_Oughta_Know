@@ -10,9 +10,23 @@ import UIKit
 
 class StyleDetailViewController: UIViewController {
 
+  @IBOutlet weak var styleNameLabel: UILabel!
+  @IBOutlet weak var styleCategoryLabel: UILabel!
+  @IBOutlet weak var abvMinLabel: UILabel!
+  @IBOutlet weak var abvMaxLabel: UILabel!
+  @IBOutlet weak var fgMinLabel: UILabel!
+  @IBOutlet weak var fgMaxLabel: UILabel!
+  @IBOutlet weak var ogMinLabel: UILabel!
+  @IBOutlet weak var styleDescriptionLabel: UILabel!
+  
+  var style : [Style]?
+  var selectedStyle : Style?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      
+      println("Desc: \(self.selectedStyle!.styleDescription)")
+      
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +34,6 @@ class StyleDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }

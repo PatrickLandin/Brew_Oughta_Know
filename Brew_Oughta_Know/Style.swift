@@ -11,9 +11,46 @@ import UIKit
 class Style {
   
   var styleName : String
+  var categoryName : String
+  var styleDescription : String
+  var abvMin : String
+  var abvMax : String
+  var ibuMin : String
+  var ibuMax : String
+  var ogMin : String
+  var fgMin : String
+  var fgMax : String
   
   init(jsonDictionary : [String : AnyObject]) {
     self.styleName = jsonDictionary["name"] as String
+    
+    let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
+    self.categoryName = categoryDictionary["name"] as String
+    
+    if let styleDescription = jsonDictionary["description"] as? String {
+      self.styleDescription = styleDescription
+    }
+    if let abvMin = jsonDictionary["abvMin"] as? String {
+      self.abvMin = abvMin
+    }
+    if let abvMax = jsonDictionary["abvMax"] as? String {
+      self.abvMax = abvMax
+    }
+    if let ibuMin = jsonDictionary["ibuMin"] as? String {
+      self.ibuMin = ibuMin
+    }
+    if let ibuMax = jsonDictionary["ibuMax"] as? String {
+      self.ibuMax = ibuMax
+    }
+    if let ogMin = jsonDictionary["ogMin"] as? String {
+      self.ogMin = ogMin
+    }
+    if let fgMin = jsonDictionary["fgMin"] as? String {
+      self.fgMin = fgMin
+    }
+    if let fgMax = jsonDictionary["fgMax"] as? String {
+      self.fgMax = fgMax
+    }
   }
   
   class func stylesFromJSON(jsonData : NSData) -> [Style]? {
