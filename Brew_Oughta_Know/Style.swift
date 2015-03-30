@@ -11,7 +11,7 @@ import UIKit
 class Style {
   
   var styleId : String?
-  var categoryId : String
+//  var categoryId : String
   var styleName : String
   var categoryName : String
   var styleDescription : String?
@@ -24,11 +24,12 @@ class Style {
   var fgMax : String?
   
   init(jsonDictionary : [String : AnyObject]) {
-    self.styleId = jsonDictionary["id"] as String
+//    self.styleId = jsonDictionary["id"] as String
+    if let styleId = jsonDictionary["id"] as? String {
+      self.styleId = styleId
+    }
     
-    
-    
-    self.categoryId = jsonDictionary["categoryId"] as String
+//    self.categoryId = jsonDictionary["categoryId"] as String
     self.styleName = jsonDictionary["name"] as String
     
     let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]

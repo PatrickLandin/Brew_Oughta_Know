@@ -33,7 +33,7 @@ class StyleDetailViewController: UIViewController {
       self.fgMaxLabel.text = self.selectedStyle?.fgMax
       self.ogMinLabel.text = self.selectedStyle?.ogMin
       
-      NetworkController.shareNetworkController.fetchStyleDetail(self.selectedStyle!.styleId, completionHandler: { (infoDictionary, error) -> (Void) in
+      NetworkController.shareNetworkController.fetchStyleDetail(self.selectedStyle!.styleId!, completionHandler: { (infoDictionary, error) -> (Void) in
         self.styleDescriptionLabel.text = self.selectedStyle?.styleDescription
       })
       
