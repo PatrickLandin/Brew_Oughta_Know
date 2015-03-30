@@ -177,6 +177,35 @@ class NetworkController {
     dataTask.resume()
   }
   
+  func fetchStyleDetail(styleId : String, completionHandler : ([String : AnyObject]?, String?) -> (Void)) {
+    let url = NSURL(string: "http://api.brewerydb.com/v2/style/\(styleId)?key=bd8c3a5a3503d79ea553868ba7189517")
+    let request = NSMutableURLRequest(URL: url!)
+    request.HTTPMethod = "GET"
+    var urlSession = NSURLSession.sharedSession()
+    let dataTask = urlSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+      if error == nil {
+        if let httpResponse = response as? NSHTTPURLResponse {
+          println(httpResponse.statusCode)
+          switch httpResponse.statusCode {
+          case 200...299:
+            println("Fetch description for style success")
+            
+            if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject] {
+            
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(jsonDictionary, nil)
+              })
+            }
+            
+          default:
+            println("Ah crap. Didn't get the style description")
+          }
+        }
+      }
+    })
+    dataTask.resume()
+  }
+  
   func fetchBreweryIconForURL(url : String, completionHandler : (UIImage) -> (Void)) {
     let url = NSURL(string: url)
     

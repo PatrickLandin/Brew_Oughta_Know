@@ -13,7 +13,7 @@ class Beer {
   var name : String
   var id : String
   var description : String?
-  var abv : String
+  var abv : String?
   var glassRecommendation : String?
   var style : String?
   var styleDescription : String?

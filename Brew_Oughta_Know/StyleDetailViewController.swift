@@ -25,7 +25,17 @@ class StyleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      println("Desc: \(self.selectedStyle!.styleDescription)")
+      self.styleNameLabel.text = self.selectedStyle?.styleName
+      self.styleCategoryLabel.text = self.selectedStyle?.categoryName
+      self.abvMinLabel.text = self.selectedStyle?.abvMin
+      self.abvMaxLabel.text = self.selectedStyle?.abvMax
+      self.fgMinLabel.text = self.selectedStyle?.fgMin
+      self.fgMaxLabel.text = self.selectedStyle?.fgMax
+      self.ogMinLabel.text = self.selectedStyle?.ogMin
+      
+      NetworkController.shareNetworkController.fetchStyleDetail(self.selectedStyle!.styleId, completionHandler: { (infoDictionary, error) -> (Void) in
+        self.styleDescriptionLabel.text = self.selectedStyle?.styleDescription
+      })
       
         // Do any additional setup after loading the view.
     }

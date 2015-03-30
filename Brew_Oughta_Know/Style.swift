@@ -10,18 +10,25 @@ import UIKit
 
 class Style {
   
+  var styleId : String?
+  var categoryId : String
   var styleName : String
   var categoryName : String
-  var styleDescription : String
-  var abvMin : String
-  var abvMax : String
-  var ibuMin : String
-  var ibuMax : String
-  var ogMin : String
-  var fgMin : String
-  var fgMax : String
+  var styleDescription : String?
+  var abvMin : String?
+  var abvMax : String?
+  var ibuMin : String?
+  var ibuMax : String?
+  var ogMin : String?
+  var fgMin : String?
+  var fgMax : String?
   
   init(jsonDictionary : [String : AnyObject]) {
+    self.styleId = jsonDictionary["id"] as String
+    
+    
+    
+    self.categoryId = jsonDictionary["categoryId"] as String
     self.styleName = jsonDictionary["name"] as String
     
     let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
