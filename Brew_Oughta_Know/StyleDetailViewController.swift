@@ -25,6 +25,8 @@ class StyleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      println(self.selectedStyle?.styleId)
+      
       self.styleNameLabel.text = self.selectedStyle?.styleName
       self.styleCategoryLabel.text = self.selectedStyle?.categoryName
       self.abvMinLabel.text = self.selectedStyle?.abvMin
