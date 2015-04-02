@@ -11,7 +11,7 @@ import UIKit
 class Style {
   
   var styleId : String?
-  var categoryId : String
+//  var categoryId : String
   var styleName : String
   var categoryName : String
   var styleDescription : String?
@@ -29,7 +29,7 @@ class Style {
     self.styleName = jsonDictionary["name"] as String
     
     let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
-    self.categoryId = categoryDictionary["id"] as String
+//    self.categoryId = categoryDictionary["id"] as String
     self.categoryName = categoryDictionary["name"] as String
     
     if let styleDescription = jsonDictionary["description"] as? String {

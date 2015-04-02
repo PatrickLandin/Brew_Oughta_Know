@@ -35,6 +35,7 @@ class SearchStyleViewController: UIViewController, UITableViewDataSource, UISear
     
     NetworkController.shareNetworkController.fetchStylesForSearchTerm(self.searchBar.text, completionHandler: { (styles, error) -> (Void) in
       if error == nil {
+//        println("StyleId after search : \(self.styles.styleId)")
         self.styles = styles
         self.tableView.reloadData()
       } else {
