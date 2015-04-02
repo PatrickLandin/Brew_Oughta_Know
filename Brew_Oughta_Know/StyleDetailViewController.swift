@@ -34,9 +34,14 @@ class StyleDetailViewController: UIViewController {
       self.fgMinLabel.text = self.selectedStyle?.fgMin
       self.fgMaxLabel.text = self.selectedStyle?.fgMax
       self.ogMinLabel.text = self.selectedStyle?.ogMin
+      self.styleDescriptionLabel.text = self.selectedStyle?.styleDescription
       
       NetworkController.shareNetworkController.fetchStyleDetail(self.selectedStyle!.styleId, completionHandler: { (infoDictionary, error) -> (Void) in
-        self.styleDescriptionLabel.text = self.selectedStyle?.styleDescription
+        
+        println("infoDictionary: \(infoDictionary)")
+        println("description: \(self.selectedStyle?.styleDescription)")
+        
+//        self.styleDescriptionLabel.text = self.selectedStyle?.styleDescription
       })
       
         // Do any additional setup after loading the view.

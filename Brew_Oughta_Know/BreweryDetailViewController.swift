@@ -71,6 +71,7 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
       let selectedIndexPath = self.tableView.indexPathForSelectedRow()
       let beer = self.beers[selectedIndexPath!.row]
       destinationVC.selectedBeer = beer
+      destinationVC.selectedBrewery = selectedBrewery
     }
   }
 

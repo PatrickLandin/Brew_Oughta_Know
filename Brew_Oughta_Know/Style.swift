@@ -11,14 +11,13 @@ import UIKit
 class Style {
   
   var styleId : Int
-  //  var categoryId : Int
   var styleName : String
   var categoryName : String
   var styleDescription : String?
   var abvMin : String?
   var abvMax : String?
-  var ibuMin : String?
-  var ibuMax : String?
+  var ibuMin : Int?
+  var ibuMax : Int?
   var ogMin : String?
   var fgMin : String?
   var fgMax : String?
@@ -29,7 +28,6 @@ class Style {
     self.styleName = jsonDictionary["name"] as String
     
     let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
-//    self.categoryId = categoryDictionary["id"] as Int
     self.categoryName = categoryDictionary["name"] as String
     
     if let styleDescription = jsonDictionary["description"] as? String {
@@ -41,10 +39,10 @@ class Style {
     if let abvMax = jsonDictionary["abvMax"] as? String {
       self.abvMax = abvMax
     }
-    if let ibuMin = jsonDictionary["ibuMin"] as? String {
+    if let ibuMin = jsonDictionary["ibuMin"] as? Int {
       self.ibuMin = ibuMin
     }
-    if let ibuMax = jsonDictionary["ibuMax"] as? String {
+    if let ibuMax = jsonDictionary["ibuMax"] as? Int {
       self.ibuMax = ibuMax
     }
     if let ogMin = jsonDictionary["ogMin"] as? String {
