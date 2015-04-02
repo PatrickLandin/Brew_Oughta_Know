@@ -1,4 +1,4 @@
-//
+ //
 //  Style.swift
 //  Brew_Oughta_Know
 //
@@ -10,8 +10,8 @@ import UIKit
 
 class Style {
   
-  var styleId : String?
-//  var categoryId : String
+  var styleId : Int
+  //  var categoryId : Int
   var styleName : String
   var categoryName : String
   var styleDescription : String?
@@ -25,11 +25,11 @@ class Style {
   
   init(jsonDictionary : [String : AnyObject]) {
     
-    self.styleId = jsonDictionary["id"] as? String
+    self.styleId = jsonDictionary["id"] as Int
     self.styleName = jsonDictionary["name"] as String
     
     let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
-//    self.categoryId = categoryDictionary["id"] as String
+//    self.categoryId = categoryDictionary["id"] as Int
     self.categoryName = categoryDictionary["name"] as String
     
     if let styleDescription = jsonDictionary["description"] as? String {
@@ -61,6 +61,8 @@ class Style {
   class func stylesFromJSON(jsonData : NSData) -> [Style]? {
     if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       if let dataArray = jsonDictionary["data"] as? [[String : AnyObject]] {
+        
+        println(jsonDictionary)
         
         var styles = [Style]()
         for data in dataArray {

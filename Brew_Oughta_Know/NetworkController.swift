@@ -100,7 +100,6 @@ class NetworkController {
             
             let results = Style.stylesFromJSON(data)
             if results != nil {
-              println("results = \(results)")
               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 completionHandler(results!, nil)
               })
@@ -111,7 +110,7 @@ class NetworkController {
             println("Ah crap")
           }
         } else {
-          println("Crap style data : \(data)")
+          println("Crap style data")
         }
       }
     })
@@ -177,7 +176,7 @@ class NetworkController {
     dataTask.resume()
   }
   
-  func fetchStyleDetail(styleId : String, completionHandler : ([String : AnyObject]?, String?) -> (Void)) {
+  func fetchStyleDetail(styleId : Int, completionHandler : ([String : AnyObject]?, String?) -> (Void)) {
     let url = NSURL(string: "http://api.brewerydb.com/v2/style/\(styleId)?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
     request.HTTPMethod = "GET"
@@ -191,6 +190,8 @@ class NetworkController {
             println("Fetch description for style success")
             
             if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject] {
+              
+              println(jsonDictionary)
             
               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 completionHandler(jsonDictionary, nil)
@@ -233,9 +234,6 @@ class NetworkController {
   }
   
 }
-
-
-
 
 
 
