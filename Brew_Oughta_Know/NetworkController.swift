@@ -146,8 +146,8 @@ class NetworkController {
     dataTask.resume()
   }
   
-  func fetchBreweryForBeer(breweryID : String, completionHandler : ([Brewery], String?) ->(Void)) {
-    let url = NSURL(string: "http://api.brewerydb.com/v2/beer/\(breweryID)/breweries?key=bd8c3a5a3503d79ea553868ba7189517")
+  func fetchBreweryForBeer(beerID : String, completionHandler : ([Brewery], String?) ->(Void)) {
+    let url = NSURL(string: "http://api.brewerydb.com/v2/beer/\(beerID)/breweries?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
     request.HTTPMethod = "GET"
     var urlSession = NSURLSession.sharedSession()

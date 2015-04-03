@@ -15,16 +15,22 @@ class BeerDetailViewController: UIViewController {
   @IBOutlet weak var styleNameLabel: UILabel!
   @IBOutlet weak var styleCategoryLabel: UILabel!
 
-  
+
   var brewery : [Brewery]?
   var selectedBeer : Beer?
   var selectedBrewery : Brewery?
   
   override func viewWillAppear(animated: Bool) {
     
-    NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.id, completionHandler: { (brewery, error) -> (Void) in
+    NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.beerId, completionHandler: { (brewery, error) -> (Void) in
       
-      self.brewery = brewery
+      if error == nil {
+        self.brewery = brewery
+        println("Fetching brewery for beer has worked")
+        println(brewery)
+      } else {
+        println("Calling for beer's brewery failed")
+      }
     })
   }
   
@@ -32,10 +38,9 @@ class BeerDetailViewController: UIViewController {
         super.viewDidLoad()
       
       self.beerNameLabel.text = self.selectedBeer?.name
+      self.breweryNameLabel.text = self.selectedBrewery?.name
       self.styleNameLabel.text = self.selectedBeer?.style
       self.styleCategoryLabel.text = self.selectedBeer?.beerCategory
-      
-      self.breweryNameLabel.text = self.selectedBrewery?.name
       
         // Do any additional setup after loading the view.
     }

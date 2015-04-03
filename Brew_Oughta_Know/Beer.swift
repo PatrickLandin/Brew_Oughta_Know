@@ -11,7 +11,7 @@ import UIKit
 class Beer {
   
   var name : String
-  var id : String
+  var beerId : String
   var description : String?
   var abv : String?
   var glassRecommendation : String?
@@ -21,7 +21,7 @@ class Beer {
   
   init(jsonDictionary : [String : AnyObject]) {
     self.name = jsonDictionary["name"] as String
-    self.id = jsonDictionary["id"] as String
+    self.beerId = jsonDictionary["id"] as String
     
     if let description = jsonDictionary["description"] as? String {
       self.description = jsonDictionary["description"] as? String
