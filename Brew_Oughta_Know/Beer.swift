@@ -49,6 +49,7 @@ class Beer {
     if let beerCategory = categoryDictionary["name"] as? String {
       self.beerCategory = categoryDictionary["name"] as? String
     }
+    
   }
   
    class func beersFromJSON(jsonData : NSData) -> [Beer]? {

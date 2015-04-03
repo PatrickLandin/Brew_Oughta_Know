@@ -14,7 +14,8 @@ class BeerDetailViewController: UIViewController {
   @IBOutlet weak var breweryNameLabel: UILabel!
   @IBOutlet weak var styleNameLabel: UILabel!
   @IBOutlet weak var styleCategoryLabel: UILabel!
-
+  @IBOutlet weak var abvLabel: UILabel!
+  
 
   var brewery : [Brewery]?
   var selectedBeer : Beer?
@@ -41,6 +42,7 @@ class BeerDetailViewController: UIViewController {
       self.breweryNameLabel.text = self.selectedBrewery?.name
       self.styleNameLabel.text = self.selectedBeer?.style
       self.styleCategoryLabel.text = self.selectedBeer?.beerCategory
+      self.abvLabel.text = self.selectedBeer?.abv
       
         // Do any additional setup after loading the view.
     }

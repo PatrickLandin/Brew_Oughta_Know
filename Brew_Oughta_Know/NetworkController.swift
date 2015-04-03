@@ -146,7 +146,7 @@ class NetworkController {
     dataTask.resume()
   }
   
-  func fetchBreweryForBeer(beerID : String, completionHandler : ([Brewery], String?) ->(Void)) {
+  func fetchBreweryForBeer(beerID : String, completionHandler : ([String : AnyObject], String?) ->(Void)) {
     let url = NSURL(string: "http://api.brewerydb.com/v2/beer/\(beerID)/breweries?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
     request.HTTPMethod = "GET"
@@ -159,11 +159,12 @@ class NetworkController {
           case 200...299:
             println("Gots the brewery for the beer")
             
-            let results = Brewery.breweriesFromJSON(data)
-            if results != nil {
+            if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)as? [String : AnyObject] {
+              
+              println(jsonDictionary)
               
               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(results!, nil)
+                completionHandler(jsonDictionary, nil)
               })
             }
             
@@ -191,8 +192,6 @@ class NetworkController {
             
             if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject] {
               
-              println(jsonDictionary)
-            
               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 completionHandler(jsonDictionary, nil)
               })
