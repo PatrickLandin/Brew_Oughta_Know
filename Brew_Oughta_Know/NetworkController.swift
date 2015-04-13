@@ -1,6 +1,7 @@
 //
 //  NetworkController.swift
 //  Brew_Oughta_Know
+//  Beerious
 //
 //  Created by Patrick Landin on 3/4/15.
 //  Copyright (c) 2015 pLandin. All rights reserved.
@@ -146,7 +147,7 @@ class NetworkController {
     dataTask.resume()
   }
   
-  func fetchBreweryForBeer(beerID : String, completionHandler : ([String : AnyObject], String?) ->(Void)) {
+  func fetchBreweryForBeer(beerID : String, completionHandler : ([Brewery], String?) ->(Void)) {
     let url = NSURL(string: "http://api.brewerydb.com/v2/beer/\(beerID)/breweries?key=bd8c3a5a3503d79ea553868ba7189517")
     let request = NSMutableURLRequest(URL: url!)
     request.HTTPMethod = "GET"
@@ -163,11 +164,16 @@ class NetworkController {
               
               println(jsonDictionary)
               
-              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(jsonDictionary, nil)
-              })
+              let results = Brewery.breweriesFromJSON(data)
+              if results != nil {
+              
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                  completionHandler(results!, nil)
+                  //This parsing strategy doesn't work because breweriesFromJSON returns an array, not a dictionary
+                  //Due to this, I switched the completionHandler to return an array of Brewery
+                })
+              }
             }
-            
           default:
             println("Ah crap. Didn't get the brewery.")
           }

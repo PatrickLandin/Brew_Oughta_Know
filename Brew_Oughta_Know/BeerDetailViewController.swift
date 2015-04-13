@@ -27,6 +27,8 @@ class BeerDetailViewController: UIViewController {
       
       if error == nil {
         self.brewery = brewery
+        self.breweryNameLabel.text = brewery.name
+        //Having trouble using the array of breweries to set brewery name
         println("Fetching brewery for beer has worked")
         println(brewery)
       } else {
