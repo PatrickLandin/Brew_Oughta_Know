@@ -11,6 +11,7 @@ import UIKit
 class Beer {
   
   var name : String
+  var breweryName : String
   var beerId : String
   var description : String?
   var abv : String?
@@ -55,6 +56,8 @@ class Beer {
    class func beersFromJSON(jsonData : NSData) -> [Beer]? {
     if let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String : AnyObject] {
       if let dataArray = jsonDictionary["data"] as? [[String : AnyObject]] {
+        
+        println(jsonDictionary)
         
         var beers = [Beer]()
         for data in dataArray {

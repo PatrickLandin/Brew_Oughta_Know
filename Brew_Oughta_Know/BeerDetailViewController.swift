@@ -17,24 +17,23 @@ class BeerDetailViewController: UIViewController {
   @IBOutlet weak var abvLabel: UILabel!
   
 
-  var brewery : [Brewery]?
+  var breweries : [Brewery]?
   var selectedBeer : Beer?
   var selectedBrewery : Brewery?
   
   override func viewWillAppear(animated: Bool) {
     
-    NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.beerId, completionHandler: { (brewery, error) -> (Void) in
-      
-      if error == nil {
-        self.brewery = brewery
-        self.breweryNameLabel.text = brewery.name
-        //Having trouble using the array of breweries to set brewery name
-        println("Fetching brewery for beer has worked")
-        println(brewery)
-      } else {
-        println("Calling for beer's brewery failed")
-      }
-    })
+//    NetworkController.shareNetworkController.fetchBreweryForBeer(self.selectedBeer!.beerId, completionHandler: { (breweries, error) -> (Void) in
+//      
+//      if error == nil {
+//        self.breweries = breweries
+//        //Having trouble using the array of breweries to set brewery name
+//        println("Fetching brewery for beer has worked")
+//        println(breweries)
+//      } else {
+//        println("Calling for beer's brewery failed")
+//      }
+//    })
   }
   
     override func viewDidLoad() {
