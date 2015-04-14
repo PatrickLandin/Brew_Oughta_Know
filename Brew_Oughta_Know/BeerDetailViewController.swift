@@ -16,8 +16,7 @@ class BeerDetailViewController: UIViewController {
   @IBOutlet weak var styleCategoryLabel: UILabel!
   @IBOutlet weak var abvLabel: UILabel!
   
-
-  var breweries : [Brewery]?
+  let breweries : [Brewery]?
   var selectedBeer : Beer?
   var selectedBrewery : Brewery?
   
@@ -40,10 +39,15 @@ class BeerDetailViewController: UIViewController {
         super.viewDidLoad()
       
       self.beerNameLabel.text = self.selectedBeer?.name
-      self.breweryNameLabel.text = self.selectedBrewery?.name
       self.styleNameLabel.text = self.selectedBeer?.style
       self.styleCategoryLabel.text = self.selectedBeer?.beerCategory
       self.abvLabel.text = self.selectedBeer?.abv
+      
+      if selectedBrewery != nil {
+        self.breweryNameLabel.text = self.selectedBrewery?.name
+      } else {
+//        self.breweryNameLabel.text = self.selectedBeer?.breweryName
+      }
       
         // Do any additional setup after loading the view.
     }

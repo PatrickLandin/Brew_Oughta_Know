@@ -11,7 +11,7 @@ import UIKit
 class Beer {
   
   var name : String
-  var breweryName : String
+//  var breweryName : String?
   var beerId : String
   var description : String?
   var abv : String?
@@ -30,6 +30,12 @@ class Beer {
     if let abv = jsonDictionary["abv"] as? String {
       self.abv = abv
     }
+    
+    let breweryDictionary = jsonDictionary["breweries"] as? [[String : AnyObject]]
+    // Crashing on above line. I think this is due to the breweryDictionary returning an array of breweries as a result.
+//    self.breweryName = breweryDictionary["name"] as? String
+//      self.breweryName = breweryName
+  
     
 //    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]
 //    if let glassRecommendation = glassDictionary["name"] as? String {
