@@ -58,7 +58,7 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("BEERS_CELL", forIndexPath: indexPath) as UITableViewCell
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("BEERS_CELL", forIndexPath: indexPath) as! UITableViewCell
     
     cell.textLabel?.text = self.beers[indexPath.row].name
     
@@ -67,7 +67,7 @@ class BreweryDetailViewController: UIViewController, UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "SHOW_BEER_DETAIL" {
-      let destinationVC = segue.destinationViewController as BeerDetailViewController
+      let destinationVC = segue.destinationViewController as! BeerDetailViewController
       let selectedIndexPath = self.tableView.indexPathForSelectedRow()
       let beer = self.beers[selectedIndexPath!.row]
       destinationVC.selectedBeer = beer

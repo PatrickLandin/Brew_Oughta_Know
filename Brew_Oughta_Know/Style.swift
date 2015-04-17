@@ -24,11 +24,11 @@ class Style {
   
   init(jsonDictionary : [String : AnyObject]) {
     
-    self.styleId = jsonDictionary["id"] as Int
-    self.styleName = jsonDictionary["name"] as String
+    self.styleId = jsonDictionary["id"] as! Int
+    self.styleName = jsonDictionary["name"] as! String
     
-    let categoryDictionary = jsonDictionary["category"] as [String : AnyObject]
-    self.categoryName = categoryDictionary["name"] as String
+    let categoryDictionary = jsonDictionary["category"] as! [String : AnyObject]
+    self.categoryName = categoryDictionary["name"] as! String
     
     if let styleDescription = jsonDictionary["description"] as? String {
       self.styleDescription = styleDescription

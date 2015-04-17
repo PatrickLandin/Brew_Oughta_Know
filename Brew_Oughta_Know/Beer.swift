@@ -11,7 +11,7 @@ import UIKit
 class Beer {
   
   var name : String
-//  var breweryName : String?
+//  var breweryName : String
   var beerId : String
   var description : String?
   var abv : String?
@@ -21,8 +21,8 @@ class Beer {
   var beerCategory : String?
   
   init(jsonDictionary : [String : AnyObject]) {
-    self.name = jsonDictionary["name"] as String
-    self.beerId = jsonDictionary["id"] as String
+    self.name = jsonDictionary["name"] as! String
+    self.beerId = jsonDictionary["id"] as! String
     
     if let description = jsonDictionary["description"] as? String {
       self.description = jsonDictionary["description"] as? String
@@ -31,10 +31,8 @@ class Beer {
       self.abv = abv
     }
     
-    let breweryDictionary = jsonDictionary["breweries"] as? [[String : AnyObject]]
-    // Crashing on above line. I think this is due to the breweryDictionary returning an array of breweries as a result.
-//    self.breweryName = breweryDictionary["name"] as? String
-//      self.breweryName = breweryName
+    let breweryDictionary = jsonDictionary["breweries"] as! [[String : AnyObject]]
+//    self.breweryName = breweryDictionary["name"] as! String
   
     
 //    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]
@@ -44,7 +42,7 @@ class Beer {
 //      println("no glass")
 //    }
     
-    let styleDictionary = jsonDictionary["style"] as [String : AnyObject]
+    let styleDictionary = jsonDictionary["style"] as! [String : AnyObject]
     if let style = styleDictionary["name"] as? String {
       self.style = styleDictionary["name"] as? String
     }
@@ -52,7 +50,7 @@ class Beer {
       self.styleDescription = styleDictionary["description"] as? String
     }
     
-    let categoryDictionary = styleDictionary["category"] as [String : AnyObject]
+    let categoryDictionary = styleDictionary["category"] as! [String : AnyObject]
     if let beerCategory = categoryDictionary["name"] as? String {
       self.beerCategory = categoryDictionary["name"] as? String
     }

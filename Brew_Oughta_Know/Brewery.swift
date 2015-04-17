@@ -23,17 +23,17 @@ class Brewery {
   var largeImage : UIImage?
   
   init(jsonDictionary : [String : AnyObject]) {
-    self.id = jsonDictionary["id"] as String
-    self.name = jsonDictionary["name"] as String
-    self.website = jsonDictionary["website"] as String
-    self.established = jsonDictionary["established"] as String
-    self.description = jsonDictionary["description"] as String
+    self.id = jsonDictionary["id"] as! String
+    self.name = jsonDictionary["name"] as! String
+    self.website = jsonDictionary["website"] as! String
+    self.established = jsonDictionary["established"] as! String
+    self.description = jsonDictionary["description"] as! String
     
-    let imageDictionary = jsonDictionary["images"] as [String : AnyObject]
+    let imageDictionary = jsonDictionary["images"] as! [String : AnyObject]
 //    if let iconImageURL = imageDictionary["icon"] as? String {
-      self.iconImageURL = imageDictionary["icon"] as String
-      self.mediumImageURL = imageDictionary["medium"] as String
-      self.largeImageURL = imageDictionary["large"] as String
+      self.iconImageURL = imageDictionary["icon"] as! String
+      self.mediumImageURL = imageDictionary["medium"] as! String
+      self.largeImageURL = imageDictionary["large"] as! String
 //    }
   }
   

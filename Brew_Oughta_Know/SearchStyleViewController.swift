@@ -50,7 +50,7 @@ class SearchStyleViewController: UIViewController, UITableViewDataSource, UISear
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("STYLE_CELL", forIndexPath: indexPath) as UITableViewCell
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("STYLE_CELL", forIndexPath: indexPath) as! UITableViewCell
     
     cell.textLabel?.text = self.styles[indexPath.row].styleName
     
@@ -59,7 +59,7 @@ class SearchStyleViewController: UIViewController, UITableViewDataSource, UISear
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "SHOW_STYLE_DETAIL" {
-      let destinationVC = segue.destinationViewController as StyleDetailViewController
+      let destinationVC = segue.destinationViewController as! StyleDetailViewController
       let selectedIndexPath = self.tableView.indexPathForSelectedRow()
       let style = self.styles[selectedIndexPath!.row]
       destinationVC.selectedStyle = style

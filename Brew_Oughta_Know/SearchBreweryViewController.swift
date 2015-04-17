@@ -51,7 +51,7 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as SearchBreweryTableViewCell
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("BREWERY_CELL", forIndexPath: indexPath) as! SearchBreweryTableViewCell
     cell.breweryLabel.text = self.breweries[indexPath.row].name
     
     var brewery = self.breweries[indexPath.row]
@@ -70,7 +70,7 @@ class SearchBreweryViewController: UIViewController, UISearchBarDelegate, UITabl
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "SHOW_BEER" {
-      let destinationVC = segue.destinationViewController as BreweryDetailViewController
+      let destinationVC = segue.destinationViewController as! BreweryDetailViewController
       let selectedIndexPath = self.tableView.indexPathForSelectedRow()
       let brewery = self.breweries[selectedIndexPath!.row]
       destinationVC.selectedBrewery = brewery
