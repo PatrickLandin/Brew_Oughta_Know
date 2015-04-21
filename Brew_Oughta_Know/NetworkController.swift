@@ -37,9 +37,9 @@ class NetworkController {
             let results = Beer.beersFromJSON(data)
             if results != nil {
               
-              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(results!,nil)
-              })
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                  completionHandler(results!,nil)
+                })
             } else {
               println("Beer search error")
               }

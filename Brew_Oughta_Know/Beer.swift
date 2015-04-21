@@ -11,7 +11,6 @@ import UIKit
 class Beer {
   
   var name : String
-//  var breweryName : String
   var beerId : String
   var description : String?
   var abv : String?
@@ -30,10 +29,6 @@ class Beer {
     if let abv = jsonDictionary["abv"] as? String {
       self.abv = abv
     }
-    
-    let breweryDictionary = jsonDictionary["breweries"] as! [[String : AnyObject]]
-//    self.breweryName = breweryDictionary["name"] as! String
-  
     
 //    let glassDictionary = jsonDictionary["glass"] as [String : AnyObject]
 //    if let glassRecommendation = glassDictionary["name"] as? String {
@@ -55,6 +50,8 @@ class Beer {
       self.beerCategory = categoryDictionary["name"] as? String
     }
     
+    
+    
   }
   
    class func beersFromJSON(jsonData : NSData) -> [Beer]? {
@@ -68,6 +65,16 @@ class Beer {
           var beer = Beer(jsonDictionary: data)
           beers.append(beer)
         }
+        
+        if let breweryInfo = jsonDictionary["breweries"] as? [[String : AnyObject]] {
+          
+          var breweries = [Brewery]()
+          for items in breweryInfo {
+              let brewery = Brewery(jsonDictionary: items)
+              breweries.append(brewery)
+          }
+        }
+        
         return beers
         }
         return nil
