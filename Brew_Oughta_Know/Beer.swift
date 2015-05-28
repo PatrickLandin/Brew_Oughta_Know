@@ -18,6 +18,8 @@ class Beer {
   var style : String?
   var styleDescription : String?
   var beerCategory : String?
+  var breweries = [Brewery]()
+  var breweryName : String?
   
   init(jsonDictionary : [String : AnyObject]) {
     self.name = jsonDictionary["name"] as! String
@@ -50,7 +52,14 @@ class Beer {
       self.beerCategory = categoryDictionary["name"] as? String
     }
     
-    
+    if let breweryInfo = jsonDictionary["breweries"] as? [[String : AnyObject]] {
+      
+      for breweryDictionary in breweryInfo {
+        let brewery = Brewery(jsonDictionary: breweryDictionary)
+        breweries.append(brewery)
+        self.breweryName = breweryDictionary["name"] as? String
+      }
+    }
     
   }
   
@@ -64,15 +73,6 @@ class Beer {
         for data in dataArray {
           var beer = Beer(jsonDictionary: data)
           beers.append(beer)
-        }
-        
-        if let breweryInfo = jsonDictionary["breweries"] as? [[String : AnyObject]] {
-          
-          var breweries = [Brewery]()
-          for items in breweryInfo {
-              let brewery = Brewery(jsonDictionary: items)
-              breweries.append(brewery)
-          }
         }
         
         return beers
